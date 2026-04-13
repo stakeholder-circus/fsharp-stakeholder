@@ -1,45 +1,72 @@
 > [!IMPORTANT]
 > This repository is part of a Codex-assisted rewrite experiment. All changes are manually reviewed, a human remains in the loop, and missing behavior is tracked explicitly rather than hidden. The project exists for fun, research, language learning, AI agent workflow/planning, interop experiments, and code review testing.
-# rust-stakeholder
 
-Satirical CLI output generator, now serving as the 2026+ source baseline for the multi-language `stakeholder` rewrite program.
+# fsharp-stakeholder
+
+F# functional parity sibling under `stakeholder-circus`.
 
 ## Status
-- Rust is the source-of-truth implementation.
-- The runtime is now scheduler-driven and deterministic under seed.
-- The baseline includes modern generator families for agents, AI operations, blockchain, healthcare, EV charging, protocol ecosystems, multilingual security flavor packs, and quantum-themed infrastructure work.
-- Experimental live-provider concepts exist in the design, but deterministic parity behavior remains the default path.
+- Imported Rust history is preserved for attribution and auditability.
+- Full classic-six plus full modern-core dedicated coverage is implemented locally.
+- Deterministic normalized JSON, full `--list-values`, explicit experimental-provider fail-fast behavior, Docker packaging, and split GitHub Actions workflows are in place.
+- Local validation is complete for the first-push bar on this workstation via the Docker-backed .NET 8 gate.
+- This repo remains local-only and not for push until publication is explicitly authorized.
 
-## Command contract
-- `cargo fmt`
-- `cargo clippy -- -D warnings`
-- `cargo build`
-- `cargo test`
-- `docker build -t rust-stakeholder .`
-- `docker run --rm rust-stakeholder --list-values`
+## Role
+- Functional .NET parity sibling.
+- Purpose: immutable-first, pipeline-oriented parity implementation with output parity goals against `dotnet-stakeholder` and traceability back to Rust, Java, and `stakeholder-core`.
+- Program category: correctness, ecosystem reach
 
-## Example usage
-```bash
-cargo run -- --dev-type security --jargon high --complexity extreme --alerts --seed 42
-cargo run -- --dev-type blockchain --framework "rollup-mcp-gateway" --output-format json --seed 7
-cargo run -- --project "hospital-ocpp-quantum-control" --jargon extreme --team --trace --seed 11
-```
+## Toolchain contract
+- `dotnet tool restore`
+- `dotnet fantomas --check`
+- `dotnet build`
+- `dotnet test`
+- `docker build`
+- Docker runtime smoke commands
 
-## What changed in the 2026+ baseline
-- classic families were modernized instead of left as legacy parody strings
-- activity planning now uses typed family selection instead of a fixed loop
-- keyword routing brings in healthcare, charging, protocol, and quantum families where relevant
-- security runs can layer multilingual language packs and persona overlays
-- JSON output is deterministic and snapshot-friendly when a seed is supplied
+## Current implementation slice
+- Deterministic session generation with normalized JSON output.
+- Full 2026+ generator-family registry in `--list-values`.
+- Dedicated renderers for all classic-six families:
+  - `code_analyzer`
+  - `data_processing`
+  - `jargon`
+  - `metrics`
+  - `network_activity`
+  - `system_monitoring`
+- Dedicated renderers for all modern-core families:
+  - `agent_workflows`
+  - `platform_engineering`
+  - `observability_ai_runtime`
+  - `delivery_preview_ops`
+  - `supply_chain_security`
+- Grouped fallback renderers for post-modern-core families.
+- Explicit fail-fast handling for experimental provider flags.
 
-## Docs
-- [Tooling](docs/tooling.md)
-- [Docker](docs/docker.md)
-- [Edge cases](docs/edge-cases.md)
-- [Language specialties](docs/language-specialties.md)
-- [Example outputs](docs/example-outputs.md)
-- [Experimental](docs/experimental.md)
-- [Traceability](docs/traceability/README.md)
+## Validation snapshot
+- `python3 scripts/validate_scaffold.py`: pass
+- `dotnet tool restore --tool-manifest .config/dotnet-tools.json`: pass
+- `dotnet fantomas src tests --check`: pass
+- `dotnet build src/FsharpStakeholder/FsharpStakeholder.fsproj`: pass
+- `dotnet build tests/FsharpStakeholder.Tests/FsharpStakeholder.Tests.fsproj`: pass
+- host `dotnet test`: blocked on this workstation because only the .NET 10 runtime is installed
+- Docker gate: pass (`docker build` ran the .NET 8 test suite with `14` passing tests, plus runtime smokes for `--list-values`, representative focused-family JSON output, deterministic same-seed output, and experimental-provider fail-fast)
 
-## Contributing
-See [CONTRIBUTING.md](CONTRIBUTING.md). Use Conventional Commits and keep Rust behavior traceable because downstream repos depend on this baseline.
+## License and provenance
+- `LICENSE` keeps the upstream MIT notice exactly as imported from `rust-stakeholder`.
+- This tranche does not add a second derivative copyright line.
+- AI/human contribution nuance is documented in the provenance docs instead of being overloaded into the license text.
+
+## Current guardrail
+- The first local publishability bar is met, but remote creation and push remain intentionally deferred.
+- Post-modern-core families remain on grouped fallback and are tracked in `GAPS.md`.
+- `flake.lock` generation remains pending until `nix` is available locally.
+
+## Documentation
+- [AI disclosure](AI_DISCLOSURE.md)
+- [Parity](PARITY.md)
+- [Explicit gaps](GAPS.md)
+- [Remotes](docs/remotes.md)
+- [Provenance](docs/provenance.md)
+- [Toolchain](docs/toolchain.md)

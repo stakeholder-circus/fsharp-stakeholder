@@ -1,37 +1,45 @@
 {
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";
-    flake-utils.url = "github:numtide/flake-utils";
-    fenix = {
-      url = "github:nix-community/fenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
+  description = "stakeholder-circus fsharp-stakeholder foundation";
 
-  outputs = {
-    self,
-    nixpkgs,
-    fenix,
-    flake-utils,
-  }:
-    flake-utils.lib.eachDefaultSystem (
-      system: let
-        pkgs = nixpkgs.legacyPackages.${system};
-        fenix_pkgs = fenix.packages.${system};
-      in {
-        nixpkgs.overlays = [fenix.overlays.default];
-        devShells.default = pkgs.mkShell {
-          nativeBuildInputs = [pkgs.pkg-config pkgs.opencv];
-          packages = [
-            (
-              fenix_pkgs.fromToolchainFile {
-                file = ./rust-toolchain.toml;
-                sha256 = "sha256-AJ6LX/Q/Er9kS15bn9iflkUwcgYqRQxiOIL2ToVAXaU=";
-              }
-            )
-            pkgs.rust-analyzer
-          ];
-        };
-      }
-    );
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+  outputs = { self, nixpkgs }:
+    let
+      systems = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+    in {
+      devShells = forAllSystems (system:
+        let pkgs = import nixpkgs { inherit system; };
+        in {
+          default = pkgs.mkShell {
+            packages = with pkgs; [ git jq python312 dotnet-sdk_8 ];
+          };
+        });
+      apps = forAllSystems (system:
+        let pkgs = import nixpkgs { inherit system; };
+            mk = name: text: {
+              type = "app";
+              program = "${pkgs.writeShellScript name text}";
+            };
+        in {
+          build = mk "build" ''
+            python3 scripts/validate_scaffold.py
+            dotnet build src/FsharpStakeholder/FsharpStakeholder.fsproj
+            dotnet build tests/FsharpStakeholder.Tests/FsharpStakeholder.Tests.fsproj
+          '';
+          test = mk "test" ''
+            dotnet test tests/FsharpStakeholder.Tests/FsharpStakeholder.Tests.fsproj
+          '';
+          check = mk "check" ''
+            python3 scripts/validate_scaffold.py
+            dotnet build src/FsharpStakeholder/FsharpStakeholder.fsproj
+            dotnet build tests/FsharpStakeholder.Tests/FsharpStakeholder.Tests.fsproj
+            dotnet test tests/FsharpStakeholder.Tests/FsharpStakeholder.Tests.fsproj
+          '';
+          format = mk "format" ''
+            dotnet format src/FsharpStakeholder/FsharpStakeholder.fsproj
+            dotnet format tests/FsharpStakeholder.Tests/FsharpStakeholder.Tests.fsproj
+          '';
+        });
+    };
 }

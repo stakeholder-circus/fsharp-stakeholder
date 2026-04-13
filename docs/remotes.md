@@ -1,8 +1,8 @@
 # Remotes
 
-- Local path: /Users/davidsupan/shareholder/rust-stakeholder
-- Default branch: master
-- Origin: git@github.com:davidsupan/rust-stakeholder.git
+- Local path: /Users/davidsupan/shareholder/fsharp-stakeholder
+- Default branch: main
+- Origin: git@github.com:stakeholder-circus/fsharp-stakeholder.git
 - Upstream: https://github.com/giacomo-b/rust-stakeholder
-- Role: Canonical Rust source of truth and the only true public fork of giacomo-b/rust-stakeholder.
-- Provenance model: explicit Codex/manual-review disclosure with preserved upstream attribution where applicable.
+- Role: Functional .NET parity sibling scaffold.
+- Provenance model: imported upstream Rust history plus explicit Codex/manual-review disclosure and derivative-work documentation.

@@ -1,0 +1,9 @@
+.git
+.github
+.githooks
+bin
+obj
+**/bin
+**/obj
+Dockerfile*
+flake.lock
