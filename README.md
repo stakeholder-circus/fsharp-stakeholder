@@ -10,7 +10,7 @@ F# functional parity sibling under `stakeholder-circus`.
 - Full classic-six plus full modern-core dedicated coverage is implemented locally.
 - Deterministic normalized JSON, full `--list-values`, explicit experimental-provider fail-fast behavior, Docker packaging, and split GitHub Actions workflows are in place.
 - Local validation is complete for the first-push bar on this workstation via the Docker-backed .NET 8 gate.
-- This repo remains local-only and not for push until publication is explicitly authorized.
+- This repo is a validated wider-matrix repo held for publication until the wider program explicitly lifts the publication guardrail.
 
 ## Role
 - Functional .NET parity sibling.
@@ -61,7 +61,7 @@ F# functional parity sibling under `stakeholder-circus`.
 ## Current guardrail
 - The first local publishability bar is met, but remote creation and push remain intentionally deferred.
 - Post-modern-core families remain on grouped fallback and are tracked in `GAPS.md`.
-- `flake.lock` generation remains pending until `nix` is available locally.
+- `flake.lock` is now generated locally through the installed Nix toolchain.
 
 ## Documentation
 - [AI disclosure](AI_DISCLOSURE.md)

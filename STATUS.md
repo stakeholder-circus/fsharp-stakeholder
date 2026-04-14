@@ -1,8 +1,8 @@
 # fsharp-stakeholder Status
 
-Last updated: 2026-04-09 17:12 CEST
+Last updated: 2026-04-13 CEST
 
-- Role: `active-wider-matrix`
+- Role: `validated-wider-matrix`
 - Parity class: `full-parity`
 - Phase target: `first-push-ready-wider-matrix`
 - Phase state: `complete`
@@ -18,13 +18,12 @@ Last updated: 2026-04-09 17:12 CEST
 ## Blockers
 - Remote creation and first push are intentionally deferred until at least 10 new full rewrites with tests are complete.
 - Publication is held until the 10-rewrite threshold is met.
-- Host-side dotnet test is blocked on this workstation because only the .NET 8 runtime is installed; Docker remains the authoritative validation path locally.
-- The shared local toolchain baseline advanced via Homebrew, but nix and other non-brew follow-ons remain pending.
-- flake.lock generation is pending until nix is available locally.
+- Host-side `dotnet test` is blocked on this workstation because only the .NET 10 runtime is installed; Docker remains the authoritative validation path locally.
+- `flake.lock` is now generated through the installed Nix toolchain.
 
 ## Next
-- Keep the repo local-only until the 10-rewrite publication threshold is met.
-- Use the validated F# slice as the implementation template for `zig-stakeholder`.
+- Keep the repo publication-held until the 10-rewrite publication threshold is met.
+- Use the validated F# slice as the implementation template for `zig-stakeholder` and the remaining wider-matrix repos.
 
 ## Canonical references
 - [`stakeholder-core/docs/program/rewrite-status-matrix.md`](/Users/davidsupan/shareholder/stakeholder-core/docs/program/rewrite-status-matrix.md)

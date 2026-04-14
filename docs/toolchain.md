@@ -38,4 +38,4 @@ This repository now contains a locally validated first-push-candidate slice.
 - Source CodeQL is intentionally not enabled for F# in this tranche.
 
 ## Current limitation
-- `flake.lock` has not been generated locally because `nix` is not installed in the current environment.
+- `flake.lock` is now generated locally through the installed Nix toolchain.
